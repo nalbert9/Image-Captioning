@@ -1,7 +1,8 @@
 # Image-Captioning
 Computer Vision
 
-Create a Deep Neural Network Architecture to automatically generate captions from images.
+## Project Overview
+This project was created as part of a submission for Computer Vision, Nanodegree  via [Udacity](https://eu.udacity.com/course/computer-vision-nanodegree--nd891). For this project I have to design a CNN-RNN model for automatically generating image captions using [COCO Dataset](http://cocodataset.org/).
 
 ## Project Structure
 The project is structured as a series of Jupyter notebooks that are designed to be completed in sequential order:
