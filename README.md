@@ -2,7 +2,7 @@
 This project was created as part of a submission for Computer Vision, Nanodegree  via [Udacity](https://eu.udacity.com/course/computer-vision-nanodegree--nd891). 
 
 ## Project Overview
-For this project I have to design a **CNN-RNN Architecture** for automatically generating image captions using [COCO Dataset](http://cocodataset.org/).
+For this project I have to design a **CNN-RNN Architecture** for automatically generating image captions using [COCO Dataset - Common Objects in Context](http://cocodataset.org/).
 
 <p align="center"> <img src="images/encoder-decoder.png" align="middle" alt="drawing" width="900px"> </p> 
 
