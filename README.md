@@ -2,7 +2,9 @@
 This project was created as part of a submission for Computer Vision, Nanodegree  via [Udacity](https://eu.udacity.com/course/computer-vision-nanodegree--nd891). 
 
 ## Project Overview
-For this project I have to design a **CNN-RNN Architecture** for automatically generating image captions using [COCO Dataset - Common Objects in Context](http://cocodataset.org/).
+In this work we combine Deep Convolutional Nets for image classification  with Recurrent Networks for sequence modeling, to create a single network that generates descriptions of image using [COCO Dataset - Common Objects in Context](http://cocodataset.org/). 
+
+[This paper](https://arxiv.org/pdf/1411.4555.pdf) described the implementation of the RNN Decoder.
 
 <p align="center"> <img src="images/encoder-decoder.png" align="middle" alt="drawing" width="900px"> </p> 
 
