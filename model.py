@@ -35,12 +35,15 @@ class DecoderRNN(nn.Module):
         
         super(DecoderRNN, self).__init__()
         
-        #self.embedding = nn.Embedding(output_size, hidden_size)
-        self.embed = nn.Embedding(vocab_size, embed_size)
+        # embedding layer that turns words into a vector of a specified size
+        # self.embedding = nn.Embedding(output_size, hidden_size)
+        self.embed_img = nn.Embedding(vocab_size, embed_size)
         
-        # Define LSTM
-        # The LSTM takes Embedded image as inputs, and outputs hidden states
+        # The LSTM takes Embedded image as inputs
+        # and outputs hidden states of hidden_size
         self.lstm = nn.LSTM(embed_size, hidden_size, num_layers)
+        
+        # the linear layer that maps the hidden state output dimension 
         self.out = nn.Linear(hidden_size, vocab_size)
     
     def forward(self, features, captions):
@@ -54,9 +57,9 @@ class DecoderRNN(nn.Module):
         captions = captions[:,:-1]    
         
         # Initialize the hidden state
-        #self.hidden = self.initHidden(self.batch_size) 
+        self.hidden = self.initHidden() 
         
-        embeddings = self.embed(captions)  
+        embeds = self.embed_img(captions)  
         
         # torch.cat 3D tensors
         # imputs = torch.cat((input, hidden), 1)
@@ -70,7 +73,9 @@ class DecoderRNN(nn.Module):
         """Returns the initial decoder state,
         conditioned on the final encoder state."""
         
-        return torch.zeros(1, self.hidden_size)
+        # The axes dimensions are (n_layers, batch_size, hidden_size)
+        return (torch.zeros(1, 1, self.hidden_size),
+                torch.zeros(1, 1, self.hidden_size))
 
     def sample(self, inputs, states=None, max_len=20):
         " accepts pre-processed image tensor (inputs) and returns predicted sentence (list of tensor ids of length max_len) "
