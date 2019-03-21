@@ -26,10 +26,10 @@ class DecoderRNN(nn.Module):
         """
         Parameters
         ----------
-        - embed_size  : Size of embedding.
-        - hidden_size : Number of nodes in the hidden layer.
-        - vocab_size  : The size of vocabulary or output size.
-        - num_layers  : Number of layers.
+        - embed_size  : Dimensionality of image and word embeddings
+        - hidden_size : number of features in hidden state of the RNN decoder
+        - vocab_size  : The size of vocabulary or output size
+        - num_layers  : Number of layers
         
         """
         
@@ -38,13 +38,10 @@ class DecoderRNN(nn.Module):
         self.hidden_size = hidden_size
         
         # embedding layer that turns words into a vector of a specified size
-        # self.embedding = nn.Embedding(output_size, hidden_size)
         self.word_embeddings = nn.Embedding(vocab_size, embed_size)
         
-        # The LSTM takes Embedded image as inputs
+        # The LSTM takes embedded vectors as inputs
         # and outputs hidden states of hidden_size
-        # self.lstm = nn.LSTM(input_size, n_hidden, n_layers, 
-        #                    dropout=drop_prob, batch_first=True)
         self.lstm = nn.LSTM(input_size = embed_size, 
                             hidden_size = hidden_size, 
                             num_layers = num_layers,
@@ -55,62 +52,57 @@ class DecoderRNN(nn.Module):
         
     
     def forward(self, features, captions):
-        """
-        Parameters
-        ----------
-        - features : Contains the embedded image features
-        - captions : Tensor corresponding to the last batch of captions .
-        
-        """
-        captions = captions[:,:-1] # Reshaping from "torch.Size([10, 17])" to "torch.Size([10, 16])"
+
+        captions = captions[:,:-1] 
         
         # Initialize the hidden state
-        # batch_size = features.shape[0] # Notebook 1
+        # batch_size = features.shape[0]
         # self.hidden = self.init_hidden(batch_size) 
         
-        embeds = self.word_embeddings(captions)  #words
+        embeds = self.word_embeddings(captions)
         
         # Concatenating features to embedding
         # torch.cat 3D tensors
-        # imputs = torch.cat((input, hidden), 1)
         inputs = torch.cat((features.unsqueeze(1), embeds), 1)
         
-        # hiddens, _ = self.lstm(inputs)
-        # outputs = self.out(hiddens)
         lstm_out, hidden = self.lstm(inputs)
         outputs = self.linear(lstm_out)
         
         return outputs
     
     def init_hidden(self,batch_size):
-        """Returns the initial decoder state,
-        conditioned on the final encoder state."""
+        """
+        Returns the initial decoder state,
+        conditioned on the final encoder state.
+        """
         
         # The axes dimensions are (n_layers, batch_size, hidden_size)
         return (torch.zeros(1, batch_size, self.hidden_size),
                 torch.zeros(1, batch_size, self.hidden_size))
 
     def sample(self, inputs, states=None, max_len=20):
-        " accepts pre-processed image tensor (inputs) and returns predicted sentence (list of tensor ids of length max_len) "
+        """
+        accepts pre-processed image tensor (inputs) and returns predicted 
+        sentence (list of tensor ids of length max_len)
+        
+        """
         
         predicted_sentence = []
         
         for i in range(max_len):
             
-            # Running through the LSTM layer
             lstm_out, states = self.lstm(inputs, states)
 
-            # Running through the linear layer
             lstm_out = lstm_out.squeeze(1)
             outputs = self.linear(lstm_out)
             
-            # Getting the maximum probabilities
+            # Get maximum probabilities
             target = outputs.max(1)[1]
             
-            # Appending the result into a list
+            # Append result into predicted_sentence list
             predicted_sentence.append(target.item())
             
-            # Updating the input
+            # Update the input for next iteration
             inputs = self.word_embeddings(target).unsqueeze(1)
             
         return predicted_sentence
