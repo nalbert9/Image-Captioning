@@ -21,10 +21,14 @@ __Notebook 3__ : 3_Inference.ipynb
 Following are a few results obtained after training the model for 3 epochs.
 Image | Caption 
 --- | --- 
-<img src="images/Surf.png" width="400"> | **Generated Caption:** a person riding a surf board on a wave .
-<img src="images/boy.png" width="400"> | **Generated Caption:** a young boy brushing his teeth with a toothbrush.
-<img src="images/motorcycle.png" width="400"> | **Generated Caption:** a group of people riding motorcycles down a street .
-<img src="images/vase.png" width="400"> | **Generated Caption:** a vase with a flower on a table.
+<img src="images/Surf.png" width="200">
+| **Generated Caption:** a person riding a surf board on a wave .
+<img src="images/boy.png" width="200"> 
+| **Generated Caption:** a young boy brushing his teeth with a toothbrush.
+<img src="images/motorcycle.png" width="200"> 
+| **Generated Caption:** a group of people riding motorcycles down a street .
+<img src="images/vase.png" width="200"> 
+| **Generated Caption:** a vase with a flower on a table.
 
 ### References
 
