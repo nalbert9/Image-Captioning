@@ -27,6 +27,9 @@ Image | Caption
 <img src="images/boy.png" width="200">  | **Generated Caption:** a young boy brushing his teeth with a toothbrush
 <img src="images/vase.png" width="200"> | **Generated Caption:** a vase with a flower on a table
 
-### References
+## References
 [Microsoft COCO](https://arxiv.org/pdf/1405.0312.pdf), [A Neural Image Caption Generator](https://arxiv.org/pdf/1411.4555.pdf) </li>
 and [Neural Image Caption Generation with Visual Attention](https://arxiv.org/pdf/1502.03044.pdf)
+
+## Licence
+This project is licensed under the terms of the [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
