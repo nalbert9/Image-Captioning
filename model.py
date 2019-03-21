@@ -45,10 +45,14 @@ class DecoderRNN(nn.Module):
         # and outputs hidden states of hidden_size
         # self.lstm = nn.LSTM(input_size, n_hidden, n_layers, 
         #                    dropout=drop_prob, batch_first=True)
-        self.lstm = nn.LSTM(embed_size, hidden_size, num_layers)
+        self.lstm = nn.LSTM(input_size = embed_size, 
+                            hidden_size = hidden_size, 
+                            num_layers = num_layers,
+                            batch_first = True)
         
         # the linear layer that maps the hidden state output dimension 
-        self.out = nn.Linear(hidden_size, vocab_size)
+        self.linear = nn.Linear(hidden_size, vocab_size)
+        
     
     def forward(self, features, captions):
         """
@@ -61,8 +65,8 @@ class DecoderRNN(nn.Module):
         captions = captions[:,:-1] # Reshaping from "torch.Size([10, 17])" to "torch.Size([10, 16])"
         
         # Initialize the hidden state
-        batch_size = features.shape[0] # Notebook 1
-        self.hidden = self.init_hidden(batch_size) 
+        # batch_size = features.shape[0] # Notebook 1
+        # self.hidden = self.init_hidden(batch_size) 
         
         embeds = self.word_embeddings(captions)  #words
         
@@ -71,8 +75,11 @@ class DecoderRNN(nn.Module):
         # imputs = torch.cat((input, hidden), 1)
         inputs = torch.cat((features.unsqueeze(1), embeds), 1)
         
-        hiddens, _ = self.lstm(inputs)
-        outputs = self.out(hiddens)
+        # hiddens, _ = self.lstm(inputs)
+        # outputs = self.out(hiddens)
+        lstm_out, hidden = self.lstm(inputs)
+        outputs = self.linear(lstm_out)
+        
         return outputs
     
     def init_hidden(self,batch_size):
@@ -85,4 +92,26 @@ class DecoderRNN(nn.Module):
 
     def sample(self, inputs, states=None, max_len=20):
         " accepts pre-processed image tensor (inputs) and returns predicted sentence (list of tensor ids of length max_len) "
-        pass
+        
+        predicted_sentence = []
+        
+        for i in range(max_len):
+            
+            # Running through the LSTM layer
+            lstm_out, states = self.lstm(inputs, states)
+
+            # Running through the linear layer
+            lstm_out = lstm_out.squeeze(1)
+            outputs = self.linear(lstm_out)
+            
+            # Getting the maximum probabilities
+            target = outputs.max(1)[1]
+            
+            # Appending the result into a list
+            predicted_sentence.append(target.item())
+            
+            # Updating the input
+            inputs = self.word_embeddings(target).unsqueeze(1)
+            
+        return predicted_sentence
+            
