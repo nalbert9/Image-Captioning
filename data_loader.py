@@ -26,7 +26,7 @@ def get_loader(transform,
       transform: Image transform.
       mode: One of 'train' or 'test'.
       batch_size: Batch size (if in testing mode, must have batch_size=1).
-      vocab_threshold: Minimum word count threshold.
+      vocab_threshold: Minimum word count threshold
       vocab_file: File containing the vocabulary. 
       start_word: Special word denoting sentence start.
       end_word: Special word denoting sentence end.
