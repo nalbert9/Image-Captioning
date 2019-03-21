@@ -19,20 +19,17 @@ __Notebook 3__ : 3_Inference.ipynb
 
 ## Results
 Following are a few results obtained after training the model for 3 epochs.
+
 Image | Caption 
 --- | --- 
-<img src="images/Surf.png" width="200">
-| **Generated Caption:** a person riding a surf board on a wave .
-<img src="images/boy.png" width="200"> 
-| **Generated Caption:** a young boy brushing his teeth with a toothbrush.
-<img src="images/motorcycle.png" width="200"> 
-| **Generated Caption:** a group of people riding motorcycles down a street .
-<img src="images/vase.png" width="200"> 
-| **Generated Caption:** a vase with a flower on a table.
+<img src="images/Surf.png" width="200"> | **Generated Caption:** a person riding a surf board on a wave .
+<img src="images/boy.png" width="200">  | **Generated Caption:** a young boy brushing his teeth with a toothbrush.
+<img src="images/motorcycle.png" width="200"> | **Generated Caption:** a group of people riding motorcycles down a street .
+<img src="images/vase.png" width="200"> | **Generated Caption:** a vase with a flower on a table.
 
 ### References
 
 <ul>
-<li>[A Neural Image Caption Generator](https://arxiv.org/pdf/1411.4555.pdf)</li>
-<li>[Neural Image Caption Generation with Visual Attention](https://arxiv.org/pdf/1502.03044.pdf)</li>
+<li> [A Neural Image Caption Generator](https://arxiv.org/pdf/1411.4555.pdf) </li>
+<li> [Neural Image Caption Generation with Visual Attention](https://arxiv.org/pdf/1502.03044.pdf) </li>
 </ul>
