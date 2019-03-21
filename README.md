@@ -28,6 +28,5 @@ Image | Caption
 <img src="images/vase.png" width="200"> | **Generated Caption:** a vase with a flower on a table
 
 ### References
-[Microsoft COCO](https://arxiv.org/pdf/1405.0312.pdf)
-[A Neural Image Caption Generator](https://arxiv.org/pdf/1411.4555.pdf) </li>
-[Neural Image Caption Generation with Visual Attention](https://arxiv.org/pdf/1502.03044.pdf)
+[Microsoft COCO](https://arxiv.org/pdf/1405.0312.pdf), [A Neural Image Caption Generator](https://arxiv.org/pdf/1411.4555.pdf) </li>
+and [Neural Image Caption Generation with Visual Attention](https://arxiv.org/pdf/1502.03044.pdf)
