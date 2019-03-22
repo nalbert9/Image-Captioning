@@ -2,7 +2,7 @@
 This project was created as part of a submission for Computer Vision, Nanodegree  via [Udacity](https://eu.udacity.com/course/computer-vision-nanodegree--nd891). 
 
 ## Project Overview
-In this work we combine Deep Convolutional Nets for image classification  with Recurrent Networks for sequence modeling, to create a single network that generates descriptions of image using [COCO Dataset - Common Objects in Context](http://cocodataset.org/). GPU Accelerated Computing (Cuda) is neccessery for this project.
+In this work we have to combine Deep Convolutional Nets for image classification  with Recurrent Networks for sequence modeling, to create a single network that generates descriptions of image using [COCO Dataset - Common Objects in Context](http://cocodataset.org/). GPU Accelerated Computing (CUDA) is neccessery for this project.
 
 <p align="center"> <img src="images/encoder-decoder.png" align="middle" alt="drawing" width="900px"> </p> 
 
@@ -17,7 +17,13 @@ __Notebook 2__ : Training the CNN-RNN Model;
 
 __Notebook 3__ : Load trained model and generate predictions.
 
-## Results
+## Installation
+```sh
+$ git clone https://github.com/gfoxx29/Image-Captioning.git
+$ sudo pip3 install -r requirements.txt
+```
+
+## Inference
 Following are a few results obtained after training the model for 3 epochs.
 
 Image | Caption 
