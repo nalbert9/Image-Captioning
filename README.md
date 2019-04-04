@@ -2,7 +2,9 @@
 This project was created as part of a submission for Computer Vision, Nanodegree  via [Udacity](https://eu.udacity.com/course/computer-vision-nanodegree--nd891). 
 
 ## Project Overview
-In this work we have to combine Deep Convolutional Nets for image classification  with Recurrent Networks for sequence modeling, to create a single network that generates descriptions of image using [COCO Dataset - Common Objects in Context](http://cocodataset.org/). GPU Accelerated Computing (CUDA) is neccessery for this project.
+In this work we have to combine Deep Convolutional Nets for image classification  with Recurrent Networks for sequence modeling, to create a single network that generates descriptions of image using [COCO Dataset - Common Objects in Context](http://cocodataset.org/).
+
+COCO is a large image dataset designed for object detection, segmentation, person keypoints detection, stuff segmentation, and caption generation. GPU Accelerated Computing (CUDA) is neccessery for this project.
 
 <p align="center"> <img src="images/encoder-decoder.png" align="middle" alt="drawing" width="900px"> </p> 
 
