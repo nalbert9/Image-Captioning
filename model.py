@@ -8,7 +8,7 @@ class EncoderCNN(nn.Module):
     	"""Load the pretrained ResNet50 and replace top fc layer."""
 
         super(EncoderCNN, self).__init__()
-        resnet = models.resnet50(pretrained=True)
+        resnet = models.resnet152(pretrained=True)
         for param in resnet.parameters():
             param.requires_grad_(False)
         
