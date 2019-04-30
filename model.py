@@ -5,7 +5,7 @@ import torchvision.models as models
 
 class EncoderCNN(nn.Module):
     def __init__(self, embed_size):
-    	"""Load the pretrained ResNet50 and replace top fc layer."""
+    	"""Load the pretrained ResNet152 and replace top fc layer."""
 
         super(EncoderCNN, self).__init__()
         resnet = models.resnet152(pretrained=True)
