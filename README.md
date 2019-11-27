@@ -21,7 +21,7 @@ __Notebook 3__ : Load trained model and generate predictions.
 
 ## Installation
 ```sh
-$ git clone https://github.com/gfoxx29/Image-Captioning.git
+$ git clone https://github.com/nalbert9/Image-Captioning.git
 $ pip3 install -r requirements.txt
 ```
 
