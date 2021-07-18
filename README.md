@@ -23,9 +23,14 @@ cd ..
 3. Download some specific data from here: http://cocodataset.org/#download (described below)
 
 * Under **Annotations**, download:
-  * **2014 Train/Val annotations [241MB]** (extract captions_train2014.json and captions_val2014.json, and place at locations cocoapi/annotations/captions_train2014.json and cocoapi/annotations/captions_val2014.json, respectively)  
-  * **2014 Testing Image info [1MB]** (extract image_info_test2014.json and place at location cocoapi/annotations/image_info_test2014.json)
+  * **2017 Train/Val annotations [241MB]** (extract captions_train2017.json and captions_val2017.json, and place at locations cocoapi/annotations/captions_train2017.json and cocoapi/annotations/captions_val2017.json, respectively)  
+  * **2017 Testing Image info [1MB]** (extract image_info_test2017.json and place at location cocoapi/annotations/image_info_test2017.json)
   
+
+* Under **Images**, download:
+  * **2017 Train images [118K/18GB]** (extract the train2017 folder and place at location cocoapi/images/train2017/)
+  * **2017 Val images [5K/1GB]** (extract the val2017 folder and place at location cocoapi/images/val2017/)
+  * **2017 Test images [41K/6GB]** (extract the test2017 folder and place at location cocoapi/images/test2017/)
 ## Project Structure
 The project is structured as a series of Jupyter notebooks that are designed to be completed in sequential order:
 
